@@ -1,3 +1,5 @@
+/*공유하는 레이아웃*/
+import Link from 'next/link'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
@@ -9,9 +11,17 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+  // 메인 레이아웃에서 html넣을땐 <body className={inter.className}>안에 넣기
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+      <body className={inter.className}>
+      <div className='navbar' style={{fontWeight:"bold"}}>
+        <Link href="/">홈</Link>
+        <Link href="/food-page">음식</Link>
+        <Link href="/cart-page">장바구니</Link>
+        </div>
+        {children}{/*<- 웹페이지*/}
+        </body>
+    </html>  
   )
 }
